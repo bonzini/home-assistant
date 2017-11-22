@@ -17,7 +17,7 @@ from homeassistant.const import (
     STATE_ALARM_ARMED_CUSTOM_BYPASS, STATE_ALARM_DISARMED, STATE_ALARM_PENDING,
     STATE_ALARM_TRIGGERED, CONF_PLATFORM, CONF_NAME, CONF_CODE,
     CONF_DELAY_TIME, CONF_PENDING_TIME, CONF_TRIGGER_TIME,
-    CONF_DISARM_AFTER_TRIGGER)
+    CONF_DISARM_AFTER_TRIGGER, ATTR_PRE_PENDING_STATE, ATTR_POST_PENDING_STATE)
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.event import track_point_in_time
 
@@ -38,9 +38,6 @@ SUPPORTED_PRETRIGGER_STATES = [state for state in SUPPORTED_STATES
 
 SUPPORTED_PENDING_STATES = [state for state in SUPPORTED_STATES
                             if state != STATE_ALARM_DISARMED]
-
-ATTR_PRE_PENDING_STATE = 'pre_pending_state'
-ATTR_POST_PENDING_STATE = 'post_pending_state'
 
 
 def _state_validator(config):
